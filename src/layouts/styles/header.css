@@ -1,0 +1,52 @@
+/* styles/header.css */
+
+/* Base Styles */
+:root {
+  --header-background: #263043; /* Dark mode header background */
+  --header-text-color: #9e9ea4; /* Dark mode text color */
+  --header-hover-background: rgba(255, 255, 255, 0.1); /* Dark mode hover effect */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px; /* Fixed height for the header */
+  padding: 0 20px; /* Horizontal padding */
+  background-color: var(--header-background); /* Use CSS variable for background */
+  color: var(--header-text-color); /* Use CSS variable for text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+}
+
+.header {
+  grid-area: header;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+}
+
+
+.menu-icon {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  display: none;
+}
+
+.menu-icon:hover {
+  background-color: var(--header-hover-background); /* Hover effect */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --header-background: #ffffff; /* Light mode header background */
+  --header-text-color: #333; /* Light mode text color */
+  --header-hover-background: rgba(0, 0, 0, 0.1); /* Light mode hover effect */
+}
+
+body.light-mode .header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for light mode */
+}

@@ -1,0 +1,139 @@
+/* styles/settings.css */
+:root {
+  --background-color: #1d2634; /* Dark mode background */
+  --text-color: #9e9ea4; /* Dark mode text color */
+  --container-background: #263043; /* Dark mode container background */
+  --input-background: #1d2634; /* Dark mode input background */
+  --input-border-color: #ddd; /* Light mode border color */
+  --toggle-background: #007bff; /* Toggle background color */
+  --toggle-border-color: #ccc; /* Toggle border color */
+  --toggle-knob-color: white; /* Toggle knob color */
+  --toggle-active-background: #0056b3; /* Active toggle background color */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--container-background); /* Container background */
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.settings-item {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--input-background); /* Input background */
+  color: white;
+  border: 1px solid var(--input-border-color); /* Input border color */
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+select:focus {
+  border-color: var(--toggle-background); /* Change border color on focus */
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0; /* Hide the default checkbox */
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-border-color); /* Default background color */
+  transition: 0.4s;
+  border-radius: 34px; /* Rounded corners */
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--toggle-knob-color); /* Knob color */
+  transition: 0.4s;
+  border-radius: 50%; /* Circular knob */
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-active-background); /* Background color when checked */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Move the knob to the right */
+}
+
+.toggle-label {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --background-color: white; /* Light mode background */
+  --text-color: #333; /* Light mode text color */
+  --container-background: #f5f5f5; /* Light mode container background */
+  --input-background: #fff; /* Light mode input background */
+  --input-border-color: #ccc; /* Light mode border color */
+  --toggle-background: #007bff; /* Toggle background color */
+  --toggle-border-color: #ccc; /* Toggle border color */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: white; /* Light text */
+}
+
+body.dark-mode .settings-container {
+  background-color: #1e1e1e; /* Darker background for settings */
+}

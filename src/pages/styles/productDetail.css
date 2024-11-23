@@ -1,0 +1,44 @@
+.detail-container {
+  max-width: 800px;
+  color: white;
+  margin: 0 auto;
+  background-color: #263043;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders are merged */
+  margin-top: 20px;
+}
+
+.detail-table td {
+  padding: 10px;
+  border: 1px solid #ddd; /* Border for table cells */
+}
+
+.detail-table .detail-label {
+  font-weight: bold; /* Bold labels */
+  background-color: #1d2634; /* Background color for labels */
+  color: #f0f0f0; /* Light color for better readability */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detail-container {
+    padding: 15px;
+  }
+
+  .detail-table td {
+    padding: 8px;
+  }
+}

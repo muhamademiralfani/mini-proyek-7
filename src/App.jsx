@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable no-unused-vars */
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SideBar from './layouts/SideBar';
+import Header from './layouts/Header';
+import NotFound from './pages/NotFound';
+import MainDashboard from './pages/MainDashboard';
+import ProductList from './pages/ProductList';
+import InputProduct from './components/InputProduct';
+import ProductDetail from './pages/ProductDetail';
+import ScanProduct from './components/ScanProduct ';
+import ManageStock from './pages/ManageStock';
+import ProductLog from './pages/ProductLog';
+import Settings from './pages/Settings';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="grid-container">
+      <Header onToggleSidebar={toggleSidebar} />
+      <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        <Routes>
+          <Route path="/" element={<MainDashboard />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/add" element={<InputProduct />} />
+          <Route path="/edit/:id" element={<InputProduct />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/scan" element={<ScanProduct />} />
+          <Route path="/stock" element={<ManageStock />} />
+          <Route path="/logs" element={<ProductLog />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

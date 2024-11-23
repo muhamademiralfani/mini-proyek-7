@@ -1,0 +1,190 @@
+/* Base Styles */
+:root {
+  --background-color: #1d2634; /* Dark mode background */
+  --text-color: white; /* Dark mode text color */
+  --header-background: rgb(10, 47, 86); /* Header background */
+  --header-text-color: white; /* Header text color */
+  --button-background: rgb(10, 47, 86); /* Button background */
+  --button-hover-background: #0056b3; /* Button hover background */
+  --input-border-color: #ddd; /* Input border color */
+  --input-background: #263043; /* Input background */
+  --table-header-background: rgb(10, 47, 86); /* Table header background */
+  --table-header-text-color: white; /* Table header text color */
+  --table-row-hover-background: rgb(
+    32,
+    42,
+    52
+  ); /* Table row hover background */
+  --table-border-color: #ddd; /* Table border color */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-color); /* Use variable for text color */
+  margin-bottom: 20px;
+}
+
+.header-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scan-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-input {
+  padding: 13px 10px;
+  border: 1px solid var(--input-border-color); /* Use variable for border color */
+  border-radius: 4px;
+  width: 100%;
+  max-width: 270px; /* Limit the width of the search input */
+  margin-right: 20px;
+  background-color: var(
+    --input-background
+  ); /* Use variable for input background */
+  color: var(--text-color); /* Use variable for text color */
+}
+
+.btn-scan {
+  padding: 10px 15px;
+  background-color: var(
+    --button-background
+  ); /* Use variable for button background */
+  color: var(--text-color); /* Use variable for button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-scan:hover {
+  background-color: var(
+    --button-hover-background
+  ); /* Use variable for button hover background */
+}
+
+.filter-select,
+.filter-date {
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid var(--input-border-color); /* Use variable for border color */
+  border-radius: 4px;
+  background-color: var(
+    --input-background
+  ); /* Use variable for input background */
+  color: var(--text-color); /* Use variable for text color */
+}
+
+.scan-button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: var(
+    --input-background
+  ); /* Use variable for container background */
+}
+
+.table-wrapper {
+  overflow-x: auto; /* For safety in edge cases */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* Allow flexibility */
+}
+
+thead th {
+  background-color: var(
+    --table-header-background
+  ); /* Use variable for header background */
+  color: var(
+    --table-header-text-color
+  ); /* Use variable for header text color */
+  text-align: left;
+  padding: 10px;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid var(--table-border-color); /* Use variable for border color */
+}
+
+tbody tr:hover {
+  color: var(--text-color); /* Use variable for text color */
+  background-color: var(
+    --table-row-hover-background
+  ); /* Use variable for row hover background */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 15px;
+  }
+  .search-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .filter-select {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .filter-date {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .search-input {
+    padding: 15px 10px;
+  }
+
+  table {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  thead th,
+  tbody td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    font-size: 12px;
+  }
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --background-color: white; /* Light mode background */
+  --text-color: #333; /* Light mode text color */
+  --header-background: #007bff; /* Light mode header background */
+  --button-background: #007bff; /* Light mode button background */
+  --button-hover-background: #0056b3; /* Light mode button hover background */
+  --input-border-color: #ccc; /* Light mode input border color */
+  --input-background: #fff; /* Light mode input background */
+  --table-header-background: #007bff; /* Light mode table header background */
+  --table-header-text-color: white; /* Light mode table header text color */
+  --table-row-hover-background: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Light mode table row hover background */
+}

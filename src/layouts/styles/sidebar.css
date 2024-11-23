@@ -1,0 +1,66 @@
+/* styles/sidebar.css */
+
+/* Base Styles */
+:root {
+  --sidebar-background: #263043; /* Dark mode sidebar background */
+  --sidebar-text-color: #9e9ea4; /* Dark mode text color */
+}
+
+#sidebar {
+  height: 100%;
+  background-color: var(--sidebar-background) !important;
+  overflow-y: auto;
+  transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and text color */
+}
+
+.sidebar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  margin-bottom: 30px;
+  color: var(--sidebar-text-color);
+}
+
+.sidebar-brand {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sidebar-list {
+  padding: 0;
+  margin-top: 15px;
+  list-style-type: none;
+}
+
+.sidebar-list-item {
+  padding: 20px;
+  font-size: 18px;
+  color: var(--sidebar-text-color);
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.sidebar-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+  cursor: pointer;
+}
+
+.sidebar-list-item > a {
+  text-decoration: none;
+  color: var(--sidebar-text-color); /* Ensure link color matches sidebar text color */
+}
+
+/* Light Mode Styles */
+body.light-mode #sidebar {
+  --sidebar-background: #eaeaee; /* Light mode sidebar background */
+  --sidebar-text-color: #333; /* Light mode text color */
+}
+
+body.light-mode .sidebar-list-item {
+  color: var(--sidebar-text-color); /* Ensure light mode text color is applied */
+}
+
+body.light-mode .sidebar-title {
+  color: var(--sidebar-text-color); /* Ensure light mode title color is applied */
+}

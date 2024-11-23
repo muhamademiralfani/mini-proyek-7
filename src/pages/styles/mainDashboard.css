@@ -1,0 +1,170 @@
+/* Base Styles */
+:root {
+  --main-background: #1d2634; /* Dark mode main background */
+  --main-text-color: rgba(255, 255, 255, 0.95); /* Dark mode text color */
+  --card-background-1: #2962ff; /* Card 1 background */
+  --card-background-2: #ff6d00; /* Card 2 background */
+  --card-background-3: #2e7d32; /* Card 3 background */
+  --card-background-4: #d50000; /* Card 4 background */
+  --chart-background: #263043; /* Dark mode chart background */
+  --card-border-radius: 8px; /* Card border radius */
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Card shadow */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --main-background: #f5f5f5; /* Light mode main background */
+  --main-text-color: #333; /* Light mode text color */
+  --card-background-1: #007bff; /* Light mode Card 1 background */
+  --card-background-2: #ff6d00; /* Light mode Card 2 background */
+  --card-background-3: #28a745; /* Light mode Card 3 background */
+  --card-background-4: #dc3545; /* Light mode Card 4 background */
+  --chart-background: #ffffff; /* Light mode chart background */
+}
+
+/* Main Container */
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: var(
+    --main-background
+  ); /* Use CSS variable for background */
+  color: var(--main-text-color); /* Use CSS variable for text color */
+}
+
+/* Main Title */
+.main-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Cards */
+.main-cards {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive card layout */
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px;
+  border-radius: var(
+    --card-border-radius
+  ); /* Use CSS variable for border radius */
+  box-shadow: var(--card-shadow); /* Use CSS variable for shadow */
+  transition:
+    background-color 0.3s,
+    transform 0.3s; /* Smooth transition */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.card:first-child {
+  background-color: var(--card-background-1);
+}
+
+.card:nth-child(2) {
+  background-color: var(--card-background-2);
+}
+
+.card:nth-child(3) {
+  background-color: var(--card-background-3);
+}
+
+.card:nth-child(4) {
+  background-color: var(--card-background-4);
+}
+
+/* Card Inner */
+.card-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-inner > .material-icons-outlined {
+  font-size: 45px;
+}
+
+/* Charts */
+.charts {
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.charts-card {
+  background-color: var(
+    --chart-background
+  ); /* Use CSS variable for chart background */
+  margin-bottom: 20px;
+  padding: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: var(
+    --card-border-radius
+  ); /* Use CSS variable for border radius */
+  box-shadow: var(--card-shadow); /* Use CSS variable for shadow */
+}
+
+/* Chart Title */
+.chart-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Medium <= 992px */
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+}
+
+/* Small <= 768px */
+@media screen and (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+}
+
+/* Extra Small <= 576px */
+@media screen and (max-width: 576px) {
+  .hedaer-left {
+    display: none;
+  }
+}
